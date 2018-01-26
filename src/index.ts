@@ -1,9 +1,9 @@
 import {ValidationError} from "./validation/ValidationError";
 import {ValidatorOptions} from "./validation/ValidatorOptions";
 import {ValidationSchema} from "./validation-schema/ValidationSchema";
-import {MetadataStorage} from "./metadata/MetadataStorage";
 import {Validator} from "./validation/Validator";
 import {getFromContainer} from "./container";
+import { getMetadataStorage } from "./storage";
 
 // -------------------------------------------------------------------------
 // Export everything api users needs
@@ -21,7 +21,7 @@ export * from "./validation/ValidationTypes";
 export * from "./validation/Validator";
 export * from "./validation-schema/ValidationSchema";
 export * from "./register-decorator";
-export * from "./metadata/MetadataStorage";
+export * from "./storage";
 
 // -------------------------------------------------------------------------
 // Shortcut methods for api users
@@ -106,5 +106,5 @@ export function validateSync(schemaNameOrObject: Object|string,
  * Registers a new validation schema.
  */
 export function registerSchema(schema: ValidationSchema): void {
-    getFromContainer(MetadataStorage).addValidationSchema(schema);
+    getMetadataStorage().addValidationSchema(schema);
 }

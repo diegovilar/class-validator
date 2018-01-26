@@ -1,5 +1,4 @@
 import {ValidatorOptions} from "./validation/ValidatorOptions";
-import {MetadataStorage} from "./metadata/MetadataStorage";
 import {ConstraintMetadata} from "./metadata/ConstraintMetadata";
 import {ValidatorConstraintInterface} from "./validation/ValidatorConstraintInterface";
 import {ValidationMetadata} from "./metadata/ValidationMetadata";
@@ -7,6 +6,7 @@ import {ValidationMetadataArgs} from "./metadata/ValidationMetadataArgs";
 import {ValidationTypes} from "./validation/ValidationTypes";
 import {ValidationArguments} from "./validation/ValidationArguments";
 import {getFromContainer} from "./container";
+import { getMetadataStorage } from "./storage";
 
 export interface ValidationDecoratorOptions {
 
@@ -69,7 +69,7 @@ export function registerDecorator(options: ValidationDecoratorOptions): void {
                 return "";
             }
         };
-        getFromContainer(MetadataStorage).addConstraintMetadata(new ConstraintMetadata(constraintCls, options.name, options.async));
+        getMetadataStorage().addConstraintMetadata(new ConstraintMetadata(constraintCls, options.name, options.async));
     }
 
     const validationMetadataArgs: ValidationMetadataArgs = {
@@ -80,5 +80,5 @@ export function registerDecorator(options: ValidationDecoratorOptions): void {
         constraintCls: constraintCls,
         constraints: options.constraints
     };
-    getFromContainer(MetadataStorage).addValidationMetadata(new ValidationMetadata(validationMetadataArgs));
+    getMetadataStorage().addValidationMetadata(new ValidationMetadata(validationMetadataArgs));
 }

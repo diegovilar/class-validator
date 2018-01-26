@@ -1,7 +1,7 @@
 {
-  "name": "class-validator",
+  "name": "@trese/class-validator",
   "private": true,
-  "version": "0.8.1",
+  "version": "0.8.2-rc.2",
   "description": "Class-based validation with Typescript / ES6 / ES5 using decorators or validation schemas. Supports both node.js and browser",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -9,12 +9,22 @@
     "name": "Umed Khudoiberdiev",
     "email": "pleerock.me@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "Diego Vilar",
+      "email": "diegovilar@gmail.com",
+      "url": "https://github.com/diegovilar"
+    }
+  ],
+  "publishConfig": {
+    "registry": "https://npm.tre-se.gov.br"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pleerock/class-validator.git"
+    "url": "https://github.com/diegovilar/class-validator.git"
   },
   "bugs": {
-    "url": "https://github.com/pleerock/class-validator/issues"
+    "url": "https://github.com/diegovilar/class-validator/issues"
   },
   "tags": [
     "validator",
@@ -56,6 +66,8 @@
     "typescript": "^2.2.1"
   },
   "scripts": {
-    "test": "gulp tests"
+    "test": "gulp tests",
+    "build": "gulp package",
+    "publishPackage": "gulp publish"
   }
 }
