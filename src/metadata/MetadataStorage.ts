@@ -30,7 +30,7 @@ export class MetadataStorage {
 
     constructor() {
 
-        console.warn(`CLASS-VALIDATOR: new MetadataStorage()`);
+        // console.warn(`CLASS-VALIDATOR: new MetadataStorage()`);
 
     }
 
